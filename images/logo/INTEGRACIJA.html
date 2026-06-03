@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- ============================================================
+  STUDENTA DZĪVE — logo integrācijas pamācība
+  Šis fails ir gan apraksts, gan dzīvs piemērs (atver pārlūkā).
+  ============================================================ -->
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Logo integrācija — Studenta dzīve</title>
+
+<!-- ▼▼▼ 1) FAVICON — ieliec šo savā <head> ▼▼▼ -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/png/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<!-- ▲▲▲ -->
+
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --logo-blue:#3B49E0; --bg:#f4f3ef; --fg:#16161a; --muted:#9a9aa2; }
+  [data-theme="dark"]{ --logo-blue:#5664F0; --bg:#0d0d10; --fg:#f2f1ee; --muted:#7c7c86; }
+  body{font-family:"Martian Mono",monospace;background:var(--bg);color:var(--fg);margin:0;padding:40px;transition:.3s}
+
+  /* ▼▼▼ 2) LOGO HEADER STILS ▼▼▼ */
+  .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}
+  .logo svg{width:34px;height:34px;display:block;flex:0 0 auto}
+  .logo__word{font-weight:700;font-size:18px;letter-spacing:-.01em}
+  .logo__word .dim{font-weight:500;color:var(--muted)}
+  /* ▲▲▲ */
+
+  .demo{border:1px solid var(--muted);border-radius:14px;padding:24px;margin:18px 0;opacity:.001}
+  .demo{opacity:1}
+  code{background:rgba(128,128,128,.15);padding:2px 6px;border-radius:5px;font-size:13px}
+  pre{background:rgba(128,128,128,.12);padding:16px;border-radius:10px;overflow:auto;font-size:12.5px;line-height:1.55}
+  h2{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--logo-blue);margin:36px 0 10px}
+  button{font-family:inherit;border:1px solid var(--muted);background:transparent;color:var(--fg);padding:9px 14px;border-radius:10px;cursor:pointer}
+  ul{line-height:1.9;font-size:13.5px}
+</style>
+</head>
+<body>
+
+<button onclick="document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')">◐ Gaišs / Tumšs</button>
+
+<h2>Tā logo izskatās lapā</h2>
+<div class="demo">
+  <!-- ▼▼▼ 3) ŠO IELIEC SAVĀ HEADER ▼▼▼ -->
+  <a class="logo" href="/" aria-label="Studenta dzīve — sākums">
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studenta dzīve"><rect width="64" height="64" rx="18" fill="var(--logo-blue,#3B49E0)"/><path d="M19 19H15V45H19M45 19H49V45H45" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><g fill="#fff"><path transform="translate(17.300 39.5) scale(0.02100 -0.02100)" d="M243 191Q271 120 362 120Q463 120 463 177Q463 221 387 230L298 240Q93 263 93 429Q93 524 162.5 579.0Q232 634 355 634Q486 634 556.5 577.0Q627 520 633 411H482Q459 495 354 495Q248 495 248 436Q248 393 323 384L412 374Q618 350 618 186Q618 89 550.0 35.0Q482 -19 361 -19Q237 -19 168.0 34.5Q99 88 91 191Z"/><path transform="translate(32.000 39.5) scale(0.02100 -0.02100)" d="M283 -16Q209 -16 154.0 23.5Q99 63 69.0 135.5Q39 208 39 307Q39 407 69.0 479.5Q99 552 154.0 591.5Q209 631 283 631Q328 631 365.0 611.0Q402 591 420 557H457V848H619V0H457V58H420Q402 24 365.0 4.0Q328 -16 283 -16ZM331 128Q396 128 432.0 175.0Q468 222 468 307Q468 393 432.0 440.0Q396 487 331 487Q267 487 231.0 440.0Q195 393 195 307Q195 222 231.0 175.0Q267 128 331 128Z"/></g></svg>
+    <span class="logo__word">Studenta&nbsp;<span class="dim">dzīve</span></span>
+  </a>
+  <!-- ▲▲▲ Teksta krāsa pielāgojas režīmam pati (manto no .logo) -->
+</div>
+
+<h2>Faili paketē</h2>
+<ul>
+  <li><code>logo-mark.svg</code> — galvenā zīme (zils kvadrāts ar [sd]). Der gaišajam UN tumšajam fonam.</li>
+  <li><code>logo-mark-dark.svg</code> — variants ar nedaudz spilgtāku zilo, ja gribi tieši tumšajam režīmam.</li>
+  <li><code>logo-lockup-light.svg</code> / <code>logo-lockup-dark.svg</code> — pilns horizontāls logo ar tekstu (sociālajiem tīkliem, README, prezentācijām).</li>
+  <li><code>favicon.svg</code>, <code>favicon.ico</code> — cilnes ikona.</li>
+  <li><code>png/</code> — 16–512px PNG + <code>apple-touch-icon.png</code> + PWA ikonas.</li>
+</ul>
+<p style="font-size:13px;color:var(--muted)">Teksts logo iekšā ir pārvērsts vektoru līknēs, tāpēc viss izskatās identiski arī tad, ja Martian Mono fonts nav ielādēts.</p>
+
+<h2>site.webmanifest (neobligāti, PWA)</h2>
+<pre>{
+  "name": "Studenta dzīve",
+  "short_name": "Studenta dzīve",
+  "icons": [
+    { "src": "/png/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/png/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#3B49E0",
+  "background_color": "#f4f3ef"
+}</pre>
+
+</body>
+</html>
