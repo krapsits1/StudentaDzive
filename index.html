@@ -1,630 +1,881 @@
 <!DOCTYPE html>
 <html lang="lv" data-theme="light">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viena darba nedēļa Datorikas nodaļas studenta dzīvē — Emīls Vētra</title>
-<link rel="icon" href="images/logo/favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="images/logo/favicon.svg">
-<link rel="apple-touch-icon" href="images/logo/png/apple-touch-icon.png">
-<link rel="manifest" href="images/logo/site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap&subset=latin-ext" rel="stylesheet">
-<script>
-  // Set theme before paint to avoid flash
-  (function () {
-    try {
-      var saved = localStorage.getItem('theme');
-      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    } catch (e) {}
-  })();
-</script>
-<style>
-  :root {
-    --font: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Courier New', monospace;
-    --maxw: 1180px;
-    --radius: 14px;
-    --transition: 0.25s ease;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viena darba nedēļa Datorikas nodaļas studenta dzīvē - Emīls Vētra</title>
+  <link rel="icon" href="images/logo/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="images/logo/favicon.svg">
+  <link rel="apple-touch-icon" href="images/logo/png/apple-touch-icon.png">
+  <link rel="manifest" href="images/logo/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap&subset=latin-ext"
+    rel="stylesheet">
+  <script>
+    // Set theme before paint to avoid flash
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { }
+    })();
+  </script>
+  <style>
+    :root {
+      --font: 'Roboto', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+      --maxw: 1180px;
+      --radius: 14px;
+      --transition: 0.25s ease;
+    }
 
-  /* ---------- Light theme ---------- */
-  [data-theme="light"] {
-    --bg: #f7f7f5;
-    --surface: #ffffff;
-    --header-bg: rgba(247, 247, 245, 0.82);
-    --text: #1a1a1a;
-    --text-muted: #5c5c5c;
-    --border: #e4e4e0;
-    --accent: #2f4bd1;
-    --accent-soft: #eef1fd;
-    --ph-bg: #e9e9e6;
-    --ph-bg2: #e0e0dc;
-    --ph-text: #9a9a95;
-    --ph-border: #d6d6d1;
-    --logo-blue: #3B49E0;
-    --scrim: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 60%, rgba(255,255,255,0.7) 100%);
-  }
+    /* ---------- Light theme ---------- */
+    [data-theme="light"] {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --header-bg: rgba(247, 247, 245, 0.82);
+      --text: #1a1a1a;
+      --text-muted: #5c5c5c;
+      --border: #e4e4e0;
+      --accent: #2f4bd1;
+      --accent-soft: #eef1fd;
+      --ph-bg: #e9e9e6;
+      --ph-bg2: #e0e0dc;
+      --ph-text: #9a9a95;
+      --ph-border: #d6d6d1;
+      --logo-blue: #3B49E0;
+      --scrim: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 60%, rgba(255, 255, 255, 0.7) 100%);
+      --hero-overlay:
+        linear-gradient(180deg, rgba(247, 247, 245, 0.55) 0%, rgba(247, 247, 245, 0.80) 100%),
+        radial-gradient(ellipse 72% 82% at 50% 48%, rgba(247, 247, 245, 0.94) 0%, rgba(247, 247, 245, 0.55) 60%, rgba(247, 247, 245, 0.75) 100%);
+    }
 
-  /* ---------- Dark theme ---------- */
-  [data-theme="dark"] {
-    --bg: #121315;
-    --surface: #1b1c1f;
-    --header-bg: rgba(18, 19, 21, 0.82);
-    --text: #ececec;
-    --text-muted: #a3a3a3;
-    --border: #2c2d31;
-    --accent: #93a6ff;
-    --accent-soft: #20233a;
-    --ph-bg: #232427;
-    --ph-bg2: #2a2b2f;
-    --ph-text: #6c6d72;
-    --ph-border: #34353a;
-    --logo-blue: #5664F0;
-    --scrim: linear-gradient(180deg, rgba(18,19,21,0) 0%, rgba(18,19,21,0.4) 60%, rgba(18,19,21,0.78) 100%);
-  }
+    /* ---------- Dark theme ---------- */
+    [data-theme="dark"] {
+      --bg: #121315;
+      --surface: #1b1c1f;
+      --header-bg: rgba(18, 19, 21, 0.82);
+      --text: #ececec;
+      --text-muted: #a3a3a3;
+      --border: #2c2d31;
+      --accent: #93a6ff;
+      --accent-soft: #20233a;
+      --ph-bg: #232427;
+      --ph-bg2: #2a2b2f;
+      --ph-text: #6c6d72;
+      --ph-border: #34353a;
+      --logo-blue: #5664F0;
+      --scrim: linear-gradient(180deg, rgba(18, 19, 21, 0) 0%, rgba(18, 19, 21, 0.4) 60%, rgba(18, 19, 21, 0.78) 100%);
+      --hero-overlay:
+        linear-gradient(180deg, rgba(18, 19, 21, 0.50) 0%, rgba(18, 19, 21, 0.84) 100%),
+        radial-gradient(ellipse 62% 74% at 50% 50%, rgba(18, 19, 21, 0.82) 0%, rgba(18, 19, 21, 0.20) 72%);
+    }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
 
-  body {
-    font-family: var(--font);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    font-size: 15px;
-    letter-spacing: -0.01em;
-    -webkit-font-smoothing: antialiased;
-    transition: background var(--transition), color var(--transition);
-  }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      -webkit-font-smoothing: antialiased;
+      transition: background var(--transition), color var(--transition);
+    }
 
-  a { color: var(--accent); }
+    a {
+      color: var(--accent);
+    }
 
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-  /* ---------- Header ---------- */
-  header.site {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: var(--header-bg);
-    backdrop-filter: saturate(160%) blur(12px);
-    -webkit-backdrop-filter: saturate(160%) blur(12px);
-    border-bottom: 1px solid var(--border);
-    transition: background var(--transition), border-color var(--transition);
-  }
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 68px;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    text-decoration: none;
-  }
-  .logo svg {
-    width: 32px;
-    height: 32px;
-    display: block;
-    flex: 0 0 auto;
-  }
-  .logo .word .dim { color: var(--text-muted); font-weight: 500; }
+    /* ---------- Header ---------- */
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--header-bg);
+      backdrop-filter: saturate(160%) blur(12px);
+      -webkit-backdrop-filter: saturate(160%) blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition), border-color var(--transition);
+    }
 
-  nav.desktop { display: flex; align-items: center; gap: 4px; }
-  nav.desktop a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    padding: 8px 11px;
-    border-radius: 8px;
-    transition: color var(--transition), background var(--transition);
-  }
-  nav.desktop a:hover { color: var(--text); background: var(--accent-soft); }
-  nav.desktop a.active { color: var(--accent); }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
 
-  .header-tools { display: flex; align-items: center; gap: 6px; }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
 
-  .icon-btn {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text);
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    transition: background var(--transition), border-color var(--transition), color var(--transition);
-  }
-  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .icon-btn svg { width: 20px; height: 20px; }
+    .logo svg {
+      width: 32px;
+      height: 32px;
+      display: block;
+      flex: 0 0 auto;
+    }
 
-  .theme-toggle .moon { display: none; }
-  [data-theme="dark"] .theme-toggle .sun { display: none; }
-  [data-theme="dark"] .theme-toggle .moon { display: block; }
+    .logo .word .dim {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
 
-  .hamburger { display: none; }
+    nav.desktop {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
 
-  /* ---------- Mobile menu ---------- */
-  .mobile-menu {
-    display: none;
-    border-bottom: 1px solid var(--border);
-    background: var(--surface);
-  }
-  .mobile-menu.open { display: block; }
-  .mobile-menu a {
-    display: block;
-    padding: 14px 24px;
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 500;
-    border-top: 1px solid var(--border);
-  }
-  .mobile-menu a:first-child { border-top: none; }
-  .mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
+    nav.desktop a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      padding: 8px 11px;
+      border-radius: 8px;
+      transition: color var(--transition), background var(--transition);
+    }
 
-  /* ---------- Hero ---------- */
-  .hero {
-    position: relative;
-    margin: 24px auto;
-    max-width: calc(var(--maxw) + 48px);
-    padding: 0 24px;
-  }
-  .hero-image {
-    position: relative;
-    border-radius: var(--radius);
-    overflow: hidden;
-    min-height: 460px;
-    display: grid;
-    place-items: center;
-    background:
-      repeating-linear-gradient(45deg, var(--ph-bg) 0, var(--ph-bg) 22px, var(--ph-bg2) 22px, var(--ph-bg2) 44px);
-    border: 1px solid var(--ph-border);
-  }
-  .hero-image::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--scrim);
-  }
-  .hero-image .ph-tag {
-    position: absolute;
-    top: 16px; left: 16px;
-    z-index: 2;
-  }
-  .hero-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    padding: 40px 24px;
-    max-width: 760px;
-  }
-  .hero .kicker {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: var(--surface);
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    margin-bottom: 22px;
-  }
-  .hero h1 {
-    font-size: clamp(27px, 4.4vw, 46px);
-    line-height: 1.18;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    text-wrap: balance;
-    margin-bottom: 20px;
-  }
-  .hero p.lead {
-    font-size: clamp(16px, 2vw, 19px);
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 24px;
-    text-wrap: pretty;
-  }
-  .hero .author {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .hero .author span { color: var(--text-muted); font-weight: 500; }
+    nav.desktop a:hover {
+      color: var(--text);
+      background: var(--accent-soft);
+    }
 
-  /* ---------- Sections ---------- */
-  section.day { padding: 56px 0; border-top: 1px solid var(--border); }
-  section.day:first-of-type { border-top: none; }
+    nav.desktop a.active {
+      color: var(--accent);
+    }
 
-  .day-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: center;
-  }
-  .day.reverse .day-media { order: 2; }
+    .header-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-  .day-text .day-head {
-    text-align: left;
-    margin-bottom: 22px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--border);
-  }
-  .day-text .day-head .day-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-  .day-text h2 {
-    font-size: clamp(22px, 3vw, 31px);
-    line-height: 1.22;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    margin-bottom: 16px;
-    text-wrap: balance;
-  }
-  .day-text .day-head h2 { margin-bottom: 0; }
-  .day-text p.body {
-    color: var(--text-muted);
-    font-size: 15px;
-    margin-bottom: 14px;
-    text-wrap: pretty;
-  }
-  .day-text .more {
-    font-size: 14.5px;
-    font-weight: 500;
-  }
-  .day-text .more a {
-    text-decoration: none;
-    border-bottom: 1.5px solid color-mix(in srgb, var(--accent) 40%, transparent);
-    padding-bottom: 1px;
-    transition: border-color var(--transition);
-  }
-  .day-text .more a:hover { border-color: var(--accent); }
-  .day-text .more svg { width: 13px; height: 13px; vertical-align: -1px; margin-left: 2px; }
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
 
-  /* ---------- Day media images ---------- */
-  .day-media { margin: 0; }
-  .day-media img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    display: block;
-    background: var(--ph-bg);
-  }
-  .day-media figcaption {
-    margin-top: 10px;
-    font-size: 12.5px;
-    color: var(--text-muted);
-    text-align: center;
-  }
+    .icon-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
-  /* ---------- Mock image placeholder ---------- */
-  .mock {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    border-radius: var(--radius);
-    background:
-      repeating-linear-gradient(45deg, var(--ph-bg) 0, var(--ph-bg) 18px, var(--ph-bg2) 18px, var(--ph-bg2) 36px);
-    border: 1px solid var(--ph-border);
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-  }
-  .mock .ph-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    color: var(--ph-text);
-    text-align: center;
-    padding: 16px;
-  }
-  .mock .ph-inner svg { width: 40px; height: 40px; opacity: 0.7; }
-  .mock .ph-inner .label { font-size: 14px; font-weight: 600; }
-  .mock .ph-inner .hint { font-size: 12px; }
-  .ph-tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ph-text);
-    background: var(--surface);
-    border: 1px solid var(--ph-border);
-    padding: 4px 9px;
-    border-radius: 6px;
-  }
+    .icon-btn svg {
+      width: 20px;
+      height: 20px;
+    }
 
-  /* ---------- Footer ---------- */
-  footer.site {
-    border-top: 1px solid var(--border);
-    background: var(--surface);
-    padding: 48px 0;
-    margin-top: 24px;
-  }
-  .footer-inner {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  footer .work-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; max-width: 420px; }
-  footer .author-line { font-size: 14px; color: var(--text-muted); }
-  footer .author-line strong { color: var(--text); font-weight: 600; }
-  footer .foot-nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
-  footer .foot-nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
-  footer .foot-nav a:hover { color: var(--accent); }
-  footer .meta { font-size: 12.5px; color: var(--text-muted); margin-top: 28px; }
+    .theme-toggle .moon {
+      display: none;
+    }
 
-  /* ---------- Responsive ---------- */
-  @media (max-width: 860px) {
-    nav.desktop { display: none; }
-    .hamburger { display: grid; }
-    .day-grid { grid-template-columns: 1fr; gap: 24px; }
-    .day.reverse .day-media { order: 0; }
-    section.day { padding: 44px 0; }
-    .hero-image { min-height: 380px; }
-    .hero-content { padding: 28px 16px; }
-  }
-  @media (max-width: 480px) {
-    .wrap { padding: 0 18px; }
-    .hero { padding: 0 18px; }
-  }
-</style>
+    [data-theme="dark"] .theme-toggle .sun {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-toggle .moon {
+      display: block;
+    }
+
+    .hamburger {
+      display: none;
+    }
+
+    /* ---------- Mobile menu ---------- */
+    .mobile-menu {
+      display: none;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 14px 24px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-menu a:first-child {
+      border-top: none;
+    }
+
+    .mobile-menu a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      margin: 0 0 24px;
+      max-width: none;
+      padding: 0;
+    }
+
+    .hero-image {
+      position: relative;
+      border-radius: 0;
+      overflow: hidden;
+      min-height: 460px;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(ellipse 90% 80% at 50% 0%, var(--accent-soft) 0%, var(--surface) 70%);
+      border: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Bannera attēls */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      z-index: 0;
+    }
+
+    /* Gaišajā režīmā attēlu nedaudz pieklusina, lai teksts labi salasās */
+    [data-theme="light"] .hero-bg {
+      filter: saturate(0.85) brightness(1.05);
+      opacity: 0.75;
+    }
+
+    /* Tumšajā režīmā gaišo ekrānuzņēmumu pieklusina, lai tas iederas fonā */
+    [data-theme="dark"] .hero-bg {
+      filter: brightness(0.48) contrast(1.05) saturate(1.05);
+    }
+
+    /* Gradients virs attēla — nodrošina teksta salasāmību abos režīmos */
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: var(--hero-overlay);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding: 40px 24px;
+      max-width: 760px;
+    }
+
+    .hero .kicker {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--surface);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(27px, 4.4vw, 46px);
+      line-height: 1.18;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      margin-bottom: 20px;
+    }
+
+    .hero p.lead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 24px;
+      text-wrap: pretty;
+    }
+
+    .hero .author {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .hero .author span {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ---------- Sections ---------- */
+    section.day {
+      padding: 56px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    section.day:first-of-type {
+      border-top: none;
+    }
+
+    .day-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .day.reverse .day-media {
+      order: 2;
+    }
+
+    .day-text .day-head {
+      text-align: left;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .day-text .day-head .day-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .day-text h2 {
+      font-size: clamp(22px, 3vw, 31px);
+      line-height: 1.22;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+
+    .day-text .day-head h2 {
+      margin-bottom: 0;
+    }
+
+    .day-text p.body {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 14px;
+      text-wrap: pretty;
+    }
+
+    .day-text .more {
+      font-size: 14.5px;
+      font-weight: 500;
+    }
+
+    .day-text .more a {
+      text-decoration: none;
+      border-bottom: 1.5px solid color-mix(in srgb, var(--accent) 40%, transparent);
+      padding-bottom: 1px;
+      transition: border-color var(--transition);
+    }
+
+    .day-text .more a:hover {
+      border-color: var(--accent);
+    }
+
+    .day-text .more svg {
+      width: 13px;
+      height: 13px;
+      vertical-align: -1px;
+      margin-left: 2px;
+    }
+
+    /* ---------- Day media images ---------- */
+    .day-media {
+      margin: 0;
+    }
+
+    .day-media img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      display: block;
+      background: var(--ph-bg);
+    }
+
+    .day-media figcaption {
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ---------- Mock image placeholder ---------- */
+    .mock {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius);
+      background:
+        repeating-linear-gradient(45deg, var(--ph-bg) 0, var(--ph-bg) 18px, var(--ph-bg2) 18px, var(--ph-bg2) 36px);
+      border: 1px solid var(--ph-border);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .mock .ph-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--ph-text);
+      text-align: center;
+      padding: 16px;
+    }
+
+    .mock .ph-inner svg {
+      width: 40px;
+      height: 40px;
+      opacity: 0.7;
+    }
+
+    .mock .ph-inner .label {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .mock .ph-inner .hint {
+      font-size: 12px;
+    }
+
+    .ph-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ph-text);
+      background: var(--surface);
+      border: 1px solid var(--ph-border);
+      padding: 4px 9px;
+      border-radius: 6px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer.site {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 48px 0;
+      margin-top: 24px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    footer .work-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      max-width: 420px;
+    }
+
+    footer .author-line {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    footer .author-line strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    footer .foot-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+    }
+
+    footer .foot-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    footer .foot-nav a:hover {
+      color: var(--accent);
+    }
+
+    footer .meta {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 28px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      nav.desktop {
+        display: none;
+      }
+
+      .hamburger {
+        display: grid;
+      }
+
+      .day-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .day.reverse .day-media {
+        order: 0;
+      }
+
+      section.day {
+        padding: 44px 0;
+      }
+
+      .hero-image {
+        min-height: 380px;
+      }
+
+      .hero-content {
+        padding: 28px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 0 18px;
+      }
+
+      .hero {
+        padding: 0 18px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<template id="__bundler_thumbnail" data-bg-color="#2f4bd1">
-  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect width="1200" height="800" fill="#2f4bd1"/>
-    <rect x="380" y="250" width="440" height="150" rx="22" fill="#ffffff"/>
-    <rect x="430" y="295" width="340" height="26" rx="13" fill="#2f4bd1"/>
-    <rect x="480" y="345" width="240" height="18" rx="9" fill="#c9d2f7"/>
-    <rect x="300" y="470" width="600" height="14" rx="7" fill="#ffffff" opacity="0.55"/>
-    <rect x="360" y="510" width="480" height="14" rx="7" fill="#ffffff" opacity="0.4"/>
-  </svg>
-</template>
+  <template id="__bundler_thumbnail" data-bg-color="#2f4bd1">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#2f4bd1" />
+      <rect x="380" y="250" width="440" height="150" rx="22" fill="#ffffff" />
+      <rect x="430" y="295" width="340" height="26" rx="13" fill="#2f4bd1" />
+      <rect x="480" y="345" width="240" height="18" rx="9" fill="#c9d2f7" />
+      <rect x="300" y="470" width="600" height="14" rx="7" fill="#ffffff" opacity="0.55" />
+      <rect x="360" y="510" width="480" height="14" rx="7" fill="#ffffff" opacity="0.4" />
+    </svg>
+  </template>
 
-<!-- ============ HEADER ============ -->
-<header class="site">
-  <div class="wrap header-inner">
-    <a href="#augša" class="logo" aria-label="Studenta dzīve — sākums">
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studenta dzīve"><rect width="64" height="64" rx="18" fill="var(--logo-blue,#3B49E0)"/><path d="M19 19H15V45H19M45 19H49V45H45" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><g fill="#fff"><path transform="translate(17.300 39.5) scale(0.02100 -0.02100)" d="M243 191Q271 120 362 120Q463 120 463 177Q463 221 387 230L298 240Q93 263 93 429Q93 524 162.5 579.0Q232 634 355 634Q486 634 556.5 577.0Q627 520 633 411H482Q459 495 354 495Q248 495 248 436Q248 393 323 384L412 374Q618 350 618 186Q618 89 550.0 35.0Q482 -19 361 -19Q237 -19 168.0 34.5Q99 88 91 191Z"/><path transform="translate(32.000 39.5) scale(0.02100 -0.02100)" d="M283 -16Q209 -16 154.0 23.5Q99 63 69.0 135.5Q39 208 39 307Q39 407 69.0 479.5Q99 552 154.0 591.5Q209 631 283 631Q328 631 365.0 611.0Q402 591 420 557H457V848H619V0H457V58H420Q402 24 365.0 4.0Q328 -16 283 -16ZM331 128Q396 128 432.0 175.0Q468 222 468 307Q468 393 432.0 440.0Q396 487 331 487Q267 487 231.0 440.0Q195 393 195 307Q195 222 231.0 175.0Q267 128 331 128Z"/></g></svg>
-      <span class="word">Studenta&nbsp;<span class="dim">dzīve</span></span>
-    </a>
+  <!-- ============ HEADER ============ -->
+  <header class="site">
+    <div class="wrap header-inner">
+      <a href="#augša" class="logo" aria-label="Studenta dzīve - sākums">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studenta dzīve">
+          <rect width="64" height="64" rx="18" fill="var(--logo-blue,#3B49E0)" />
+          <path d="M19 19H15V45H19M45 19H49V45H45" stroke="#fff" stroke-width="4" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <g fill="#fff">
+            <path transform="translate(17.300 39.5) scale(0.02100 -0.02100)"
+              d="M243 191Q271 120 362 120Q463 120 463 177Q463 221 387 230L298 240Q93 263 93 429Q93 524 162.5 579.0Q232 634 355 634Q486 634 556.5 577.0Q627 520 633 411H482Q459 495 354 495Q248 495 248 436Q248 393 323 384L412 374Q618 350 618 186Q618 89 550.0 35.0Q482 -19 361 -19Q237 -19 168.0 34.5Q99 88 91 191Z" />
+            <path transform="translate(32.000 39.5) scale(0.02100 -0.02100)"
+              d="M283 -16Q209 -16 154.0 23.5Q99 63 69.0 135.5Q39 208 39 307Q39 407 69.0 479.5Q99 552 154.0 591.5Q209 631 283 631Q328 631 365.0 611.0Q402 591 420 557H457V848H619V0H457V58H420Q402 24 365.0 4.0Q328 -16 283 -16ZM331 128Q396 128 432.0 175.0Q468 222 468 307Q468 393 432.0 440.0Q396 487 331 487Q267 487 231.0 440.0Q195 393 195 307Q195 222 231.0 175.0Q267 128 331 128Z" />
+          </g>
+        </svg>
+        <span class="word">Studenta&nbsp;<span class="dim">dzīve</span></span>
+      </a>
 
-    <nav class="desktop" aria-label="Galvenā navigācija">
-      <a href="#pirmdiena">Pirmdiena</a>
-      <a href="#otrdiena">Otrdiena</a>
-      <a href="#tresdiena">Trešdiena</a>
-      <a href="#ceturtdiena">Ceturtdiena</a>
-      <a href="#piektdiena">Piektdiena</a>
-    </nav>
+      <nav class="desktop" aria-label="Galvenā navigācija">
+        <a href="#pirmdiena">Pirmdiena</a>
+        <a href="#otrdiena">Otrdiena</a>
+        <a href="#tresdiena">Trešdiena</a>
+        <a href="#ceturtdiena">Ceturtdiena</a>
+        <a href="#piektdiena">Piektdiena</a>
+      </nav>
 
-    <div class="header-tools">
-      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Pārslēgt gaišo/tumšo režīmu" title="Gaišs / tumšs režīms">
-        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <button class="icon-btn hamburger" id="hamburger" aria-label="Atvērt izvēlni" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
+      <div class="header-tools">
+        <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Pārslēgt gaišo/tumšo režīmu"
+          title="Gaišs / tumšs režīms">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+        <button class="icon-btn hamburger" id="hamburger" aria-label="Atvērt izvēlni" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#pirmdiena">Pirmdiena · Ceļš uz universitāti</a>
-    <a href="#otrdiena">Otrdiena · Klātienes lekcijas</a>
-    <a href="#tresdiena">Trešdiena · Tiešsaistes mācības</a>
-    <a href="#ceturtdiena">Ceturtdiena · Patstāvīgais darbs</a>
-    <a href="#piektdiena">Piektdiena · Ārpusstudiju dzīve</a>
-  </div>
-</header>
-
-<span id="augša"></span>
-
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <!-- VIETTURIS: nomainiet šo bloku ar noskaņas attēlu (hero image) -->
-  <div class="hero-image">
-    <div class="hero-content">
-      <h1>Viena darba nedēļa Datorikas nodaļas studenta dzīvē</h1>
-      <p class="lead">Piecas dienas no pirmdienas rīta līdz piektdienas vakaram — lekcijas, kods, tiešsaistes mācības un studentu dzīve Latvijas Universitātē.</p>
-      <p class="author">Autors: Emīls Vētra <span>· Tīmekļa vietnes dizains</span></p>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#pirmdiena">Pirmdiena · Ceļš uz universitāti</a>
+      <a href="#otrdiena">Otrdiena · Algoritmu teorija</a>
+      <a href="#tresdiena">Trešdiena · Tīmekļa dizaina pamati</a>
+      <a href="#ceturtdiena">Ceturtdiena · Darbs par programmētāju</a>
+      <a href="#piektdiena">Piektdiena · Investīcijas un kripto</a>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ============ SADAĻAS ============ -->
-<main class="wrap">
+  <span id="augša"></span>
 
-  <!-- ---- Pirmdiena ---- -->
-  <section class="day" id="pirmdiena">
-    <div class="day-grid">
-      <figure class="day-media">
-        <img src="images/route.png" alt="Ceļš uz universitāti ar 1. tramvaju no Juglas" loading="lazy" width="800" height="600">
-        <figcaption>No Juglas uz centru ar 1. tramvaju</figcaption>
-      </figure>
-      <div class="day-text">
-      <div class="day-head">
-          <span class="day-label">Pirmdiena</span>
-          <h2>Ceļš uz universitāti</h2>
-        </div>
-        <p class="body">Nedēļa sākas agri. Modinātājs noskan septiņos, un, kamēr pārējā pilsēta vēl tikai mostas, es jau dodos uz pieturu. Es dzīvoju Juglā, tālāk no centra, tāpēc katru rītu braucu uz Latvijas Universitāti ar <strong>1. tramvaju</strong>. Maršruts no Juglas ved cauri rīta Rīgai gandrīz visai pilsētai pāri — tas ir garākais tramvaja maršruts, bet tieši tāpēc tas ir ērts: iekāpju vienā galā un izkāpju jau netālu no fakultātes.</p>
-        <p class="body">Tramvajs rīta stundā ir pārpildīts, logi aizsvīduši, taču šajās aptuveni četrdesmit minūtēs paspēju pārskatīt dienas plānu telefonā, atvērt e-studiju lietotni un pārliecināties, vai nav mainījušās auditorijas. Reizēm izlasu rakstu par programmēšanu, citreiz vienkārši klausos mūziku un vēroju, kā aiz loga slīd garām pieturas. Kad beidzot izkāpju un ieeju fakultātes ēkā, nedēļa var sākties pa īstam.</p>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-image">
+      <img class="hero-bg" src="images/banner.png" alt="" aria-hidden="true" fetchpriority="high" decoding="async"
+        width="1297" height="497">
+      <div class="hero-content">
+        <h1>Viena darba nedēļa Datorikas nodaļas studenta dzīvē</h1>
+        <p class="lead">Piecas dienas no pirmdienas rīta līdz piektdienas vakaram - ceļš uz universitāti, lekcijas, kods
+          darbā un interese par finanšu tirgiem.</p>
+        <p class="author">Autors: Emīls Vētra</p>
       </div>
     </div>
   </section>
 
-  <!-- ---- Otrdiena (reverse) ---- -->
-  <section class="day reverse" id="otrdiena">
-    <div class="day-grid">
-      <figure class="day-media">
-        <img src="images/algo.png" alt="Algoritmu teorija — sarežģīts studiju priekšmets" loading="lazy" width="800" height="600">
-        <figcaption>Algoritmu teorija — nedēļas grūtākais priekšmets</figcaption>
-      </figure>
-      <div class="day-text">
-      <div class="day-head">
-          <span class="day-label">Otrdiena</span>
-          <h2>Algoritmu teorija</h2>
-        </div>
-        <p class="body">Otrdienas ir veltītas <strong>Algoritmu teorijai</strong> — un tas, bez šaubām, ir viens no sarežģītākajiem priekšmetiem visā studiju programmā. Šeit nepietiek vienkārši uzrakstīt kodu, kas strādā: ir jāsaprot, <em>kāpēc</em> tas strādā, cik ātri tas darbojas un vai to vispār ir iespējams atrisināt efektīvāk.</p>
-        <p class="body">Lekcijās analizējam algoritmu sarežģītību, pierādām to korektību un mācāmies novērtēt laika un atmiņas patēriņu. Tēmas mēdz būt abstraktas — rekursija, dinamiskā programmēšana, grafu algoritmi, sarežģītības klases — un dažkārt vienu uzdevumu nākas pārdomāt vairākas reizes, līdz beidzot noklikšķ. Tieši šī izaicinājuma dēļ Algoritmu teorija prasa visvairāk koncentrēšanās, bet arī dod vislielāko gandarījumu, kad grūts pierādījums beidzot izdodas.</p>
-      </div>
-    </div>
-  </section>
+  <!-- ============ SADAĻAS ============ -->
+  <main class="wrap">
 
-  <!-- ---- Trešdiena ---- -->
-  <section class="day" id="tresdiena">
-    <div class="day-grid">
-      <figure class="day-media">
-        <img src="images/design.png" alt="Tīmekļa dizaina pamati — dizainēšana un maketu veidošana" loading="lazy" width="800" height="600">
-        <figcaption>Tīmekļa dizaina pamati — veidojam dažādus dizainus</figcaption>
-      </figure>
-      <div class="day-text">
-      <div class="day-head">
-          <span class="day-label">Trešdiena</span>
-          <h2>Tīmekļa dizaina pamati</h2>
-        </div>
-        <p class="body">Trešdiena ir radošākā nedēļas diena, jo tad mācāmies <strong>Tīmekļa dizaina pamatus</strong>. Šeit no koda pasaules uz brīdi pārceļos uz dizaina pasauli: domāju par krāsām, tipogrāfiju, atstarpēm un to, kā cilvēks patiesībā lieto vietni. Tieši šis priekšmets iedvesmoja arī šo mājaslapu.</p>
-        <p class="body">Lielāko daļu laika pavadām, praktiski <strong>dizainējot un veidojot dažādus dizainus</strong> — no pirmajām skicēm un maketiem līdz gatavām lapām. Mācāmies izkārtot saturu tā, lai tas būtu pārskatāms, eksperimentējam ar gaišo un tumšo režīmu, pielāgojam dizainu dažādiem ekrāniem un saņemam atgriezenisko saiti par saviem darbiem. Katra nodarbība beidzas ar jaunu maketu vai uzlabotu projektu, un ir patīkami redzēt, kā idejas pārtop par reālu, lietojamu dizainu.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---- Ceturtdiena (reverse) ---- -->
-  <section class="day reverse" id="ceturtdiena">
-    <div class="day-grid">
-      <!-- VIETTURIS: ievietojiet attēlu šeit -->
-      <figure class="day-media">
-        <div class="mock">
-          <span class="ph-tag">Attēls 4</span>
-          <div class="ph-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 6-5 6 5 6M16 6l5 6-5 6"/></svg>
-            <span class="label">Patstāvīgais darbs</span>
-            <span class="hint">Ievietojiet savu attēlu</span>
+    <!-- ---- Pirmdiena ---- -->
+    <section class="day" id="pirmdiena">
+      <div class="day-grid">
+        <figure class="day-media">
+          <img src="images/route.png" alt="Ceļš uz universitāti ar 1. tramvaju no Juglas" loading="lazy" width="800"
+            height="600">
+          <figcaption>No Juglas uz centru ar 1. tramvaju</figcaption>
+        </figure>
+        <div class="day-text">
+          <div class="day-head">
+            <span class="day-label">Pirmdiena</span>
+            <h2>Ceļš uz universitāti</h2>
           </div>
+          <p class="body">Nedēļa man sākas agri. Modinātājs zvana pulksten septiņos, un es dodos uz tramvaja pieturu.
+            Dzīvoju Juglā, tāpēc katru rītu uz Latvijas Universitāti braucu ar 1. tramvaju. Tas ir garš maršruts, kas
+            ved cauri lielai daļai Rīgas, taču tas ir ļoti ērts, jo varu iekāpt Juglā un izkāpt netālu no fakultātes.
+          </p>
+          <p class="body"> No rītiem tramvajs parasti ir pilns ar cilvēkiem. Brauciens ilgst apmēram četrdesmit minūtes,
+            un šajā laikā
+            es pārskatu dienas plānu telefonā, apskatu e-studijas un pārbaudu, vai nav mainījušās auditorijas. Dažreiz
+            palasu rakstus par programmēšanu, bet citreiz klausos mūziku un skatos pa logu. Kad ierodos universitātē un
+            ieeju fakultātē, mana studiju nedēļa var sākties.</p>
         </div>
-      </figure>
-      <div class="day-text">
-      <div class="day-head">
-          <span class="day-label">Ceturtdiena</span>
-          <h2>Patstāvīgais darbs un programmēšana</h2>
-        </div>
-        <p class="body">Ceturtdiena ir veltīta dziļam darbam. No rīta ieņemu vietu bibliotēkā, atveru klēpjdatoru un ķeros pie semestra projekta. Programmēšana prasa koncentrēšanos — reizēm stundām meklēju kļūdu kodā, līdz beidzot saprotu, ka aizmirsts viens vienīgs simbols. Tieši šie mazie uzvaras mirkļi, kad programma beidzot strādā, padara studijas tik aizraujošas.</p>
-        <p class="body">Pa dienu izmantoju dokumentāciju, izstrādātāju forumus un versiju kontroles rīkus, lai sekotu līdzi izmaiņām. Kad iestrēgstu, uzrakstu kursabiedram, un kopā ātri atrodam risinājumu. Pēcpusdienā nedaudz atelpoju — izeju pastaigā ap universitātes ēku, lai izvēdinātu galvu. Atgriežoties pie darba, domas ir skaidrākas. Vakarā saglabāju paveikto un atzīmēju izpildītos uzdevumus sarakstā. Šī ir klusākā, bet, iespējams, produktīvākā nedēļas diena.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ---- Piektdiena ---- -->
-  <section class="day" id="piektdiena">
-    <div class="day-grid">
-      <!-- VIETTURIS: ievietojiet attēlu šeit -->
-      <figure class="day-media">
-        <div class="mock">
-          <span class="ph-tag">Attēls 5</span>
-          <div class="ph-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <span class="label">Ārpusstudiju dzīve</span>
-            <span class="hint">Ievietojiet savu attēlu</span>
+    <!-- ---- Otrdiena (reverse) ---- -->
+    <section class="day reverse" id="otrdiena">
+      <div class="day-grid">
+        <figure class="day-media">
+          <img src="images/algo.png" alt="Algoritmu teorija - sarežģīts studiju priekšmets" loading="lazy" width="800"
+            height="600">
+          <figcaption>Algoritmu teorija - nedēļas grūtākais priekšmets</figcaption>
+        </figure>
+        <div class="day-text">
+          <div class="day-head">
+            <span class="day-label">Otrdiena</span>
+            <h2>Algoritmu teorija</h2>
           </div>
+          <p class="body">Otrdienās man ir Algoritmu teorija, kas ir viens no grūtākajiem studiju priekšmetiem. Šajā
+            kursā nepietiek tikai uzrakstīt programmu, kas darbojas. Ir svarīgi saprast arī to, kā algoritms darbojas,
+            cik ātri tas izpilda uzdevumu un vai ir iespējams atrast labāku risinājumu.</p>
+          <p class="body">Lekcijās mācāmies analizēt algoritmus, novērtēt to darbības ātrumu un atmiņas patēriņu.
+            Apskatām tādas tēmas kā rekursija, dinamiskā programmēšana un grafu algoritmi. Dažreiz uzdevumi ir
+            sarežģīti, un risinājumu izdodas atrast tikai pēc ilgākām pārdomām. Lai gan šis priekšmets prasa daudz
+            uzmanības un darba, ir patīkama sajūta, kad beidzot izdodas saprast sarežģītu uzdevumu vai atrisināt kādu
+            problēmu.</p>
         </div>
-      </figure>
-      <div class="day-text">
-      <div class="day-head">
-          <span class="day-label">Piektdiena</span>
-          <h2>Ārpusstudiju aktivitātes</h2>
-        </div>
-        <p class="body">Piektdiena nozīmē, ka nopietnais darbs ir paveikts un var nedaudz atslābt. Pēc rīta lekcijas dodos uz studentu pašpārvaldes telpām, kur plānojam tuvojošos pasākumu. Datorikas fakultātē netrūkst ārpusstudiju aktivitāšu — hakatoni, programmēšanas sacensības, nozares vakari un neformālas tikšanās ar uzņēmumiem.</p>
-        <p class="body">Šovakar fakultātē notiek neliela spēļu izstrādes pēcpusdiena, un mēs ar komandu prezentējam savu mazo projektu. Šādi pasākumi palīdz iepazīt cilvēkus ārpus savas grupas un parāda, ka studijas ir kas vairāk par lekcijām. Vēlāk kopā ar draugiem aizejam uz pilsētu — pārrunājam nedēļā piedzīvoto un jau sapņojam par nākamajiem projektiem. Nedēļa noslēdzas ar gandarījumu: piecas dienas, daudz jaunu zināšanu un sajūta, ka esmu daļa no draudzīgas studentu kopienas.</p>
       </div>
+    </section>
+
+    <!-- ---- Trešdiena ---- -->
+    <section class="day" id="tresdiena">
+      <div class="day-grid">
+        <figure class="day-media">
+          <img src="images/design.png" alt="Tīmekļa dizaina pamati - dizainēšana un maketu veidošana" loading="lazy"
+            width="800" height="600">
+          <figcaption>Tīmekļa dizaina pamati - veidojam dažādus dizainus</figcaption>
+        </figure>
+        <div class="day-text">
+          <div class="day-head">
+            <span class="day-label">Trešdiena</span>
+            <h2>Tīmekļa dizaina pamati</h2>
+          </div>
+          <p class="body">Trešdienās man ir Tīmekļa dizaina pamati. Šis ir viens no radošākajiem priekšmetiem, jo tajā
+            ne tikai programmējam, bet arī domājam par dizainu un lietotāju pieredzi. Mācāmies izvēlēties krāsas, fontus
+            un veidot pārskatāmu lapas izkārtojumu. Tieši šis priekšmets mani iedvesmoja izveidot arī šo mājaslapu.</p>
+          <p class="body">Nodarbībās veidojam dažādus dizaina projektus - sākot ar vienkāršām skicēm un maketiem, līdz
+            gatavām tīmekļa lapām. Mācāmies sakārtot saturu tā, lai tas būtu viegli uztverams, pielāgojam dizainu dažādu
+            izmēru ekrāniem un saņemam pasniedzēja un kursabiedru ieteikumus. Katru nedēļu var redzēt, kā idejas
+            pakāpeniski pārvēršas par gatavu un lietojamu dizainu.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- Ceturtdiena (reverse) ---- -->
+    <section class="day reverse" id="ceturtdiena">
+      <div class="day-grid">
+        <figure class="day-media">
+          <img src="images/work.png" alt="Darbs par programmētāju - sarežģītu sistēmu izstrāde" loading="lazy"
+            width="800" height="600">
+          <figcaption>Darbs par programmētāju - kods un sarežģītas sistēmas</figcaption>
+        </figure>
+        <div class="day-text">
+          <div class="day-head">
+            <span class="day-label">Ceturtdiena</span>
+            <h2>Darbs par programmētāju</h2>
+          </div>
+          <p class="body">Ceturtdienās es vairāk pievēršos darbam nekā studijām. Strādāju par programmētāju, un šajā
+            dienā varu praktiski izmantot zināšanas, ko iegūstu universitātē. No rīta ierodos darbā, pārskatu dienas
+            uzdevumus un sāku darbu pie dažādiem projektiem.</p>
+          <p class="body">Darba laikā veidoju jaunas programmu funkcijas, laboju kļūdas un pārbaudu kolēģu izstrādāto
+            kodu. Bieži jādomā ne tikai par to, lai risinājums darbotos, bet arī lai tas būtu efektīvs, drošs un viegli
+            saprotams citiem izstrādātājiem. Darbs ir atbildīgs un reizēm izaicinošs, taču tas dod vērtīgu pieredzi un
+            palīdz labāk saprast, kā tiek veidota programmatūra, ko cilvēki izmanto ikdienā.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- Piektdiena ---- -->
+    <section class="day" id="piektdiena">
+      <div class="day-grid">
+        <figure class="day-media">
+          <img src="images/crypto.png" alt="Interese par investīcijām un kriptovalūtu tirgiem" loading="lazy"
+            width="800" height="600">
+          <figcaption>Pēc mācībām un darba - investīcijas un kriptovalūtu tirgi</figcaption>
+        </figure>
+        <div class="day-text">
+          <div class="day-head">
+            <span class="day-label">Piektdiena</span>
+            <h2>Investīcijas un kriptovalūtu tirgi</h2>
+          </div>
+          <p class="body">Piektdienas vakarus parasti veltu savām interesēm un pašizglītībai. Pēc studijām un darba man
+            patīk uzzināt kaut ko jaunu arī ārpus universitātes programmas. Viena no manām lielākajām interesēm ir
+            investīcijas un kriptovalūtas.
+          </p>
+          <p class="body">Brīvajā laikā lasu jaunākās ziņas par finanšu tirgiem, sekoju līdzi cenu izmaiņām un cenšos
+            saprast, kas ietekmē dažādu aktīvu vērtību. Mani interesē ne tikai skaitļi un grafiki, bet arī tehnoloģijas
+            un idejas, kas slēpjas aiz dažādiem projektiem. Šī nodarbe palīdz attīstīt analītisko domāšanu, pacietību un
+            spēju pieņemt pārdomātus lēmumus. Tā ir iespēja paplašināt zināšanas un labāk izprast saikni starp
+            tehnoloģijām, ekonomiku un finanšu pasauli.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="work-title">Viena darba nedēļa Datorikas nodaļas studenta dzīvē</p>
+        <p class="author-line">Autors: <strong>Emīls Vētra</strong></p>
+      </div>
+      <nav class="foot-nav" aria-label="Kājenes navigācija">
+        <a href="#pirmdiena">Pirmdiena</a>
+        <a href="#otrdiena">Otrdiena</a>
+        <a href="#tresdiena">Trešdiena</a>
+        <a href="#ceturtdiena">Ceturtdiena</a>
+        <a href="#piektdiena">Piektdiena</a>
+      </nav>
     </div>
-  </section>
+  </footer>
 
-</main>
-
-<!-- ============ FOOTER ============ -->
-<footer class="site">
-  <div class="wrap footer-inner">
-    <div>
-      <p class="work-title">Viena darba nedēļa Datorikas nodaļas studenta dzīvē</p>
-      <p class="author-line">Autors: <strong>Emīls Vētra</strong> · Patstāvīgais darbs</p>
-    </div>
-    <nav class="foot-nav" aria-label="Kājenes navigācija">
-      <a href="#pirmdiena">Pirmdiena</a>
-      <a href="#otrdiena">Otrdiena</a>
-      <a href="#tresdiena">Trešdiena</a>
-      <a href="#ceturtdiena">Ceturtdiena</a>
-      <a href="#piektdiena">Piektdiena</a>
-    </nav>
-  </div>
-  <div class="wrap">
-    <p class="meta">© 2026 Emīls Vētra. Tīmekļa vietnes dizaina patstāvīgais darbs · Latvijas Universitāte.</p>
-  </div>
-</footer>
-
-<script>
-  // ---- Theme toggle ----
-  var toggle = document.getElementById('themeToggle');
-  toggle.addEventListener('click', function () {
-    var current = document.documentElement.getAttribute('data-theme');
-    var next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
-  });
-
-  // ---- Mobile menu ----
-  var ham = document.getElementById('hamburger');
-  var menu = document.getElementById('mobileMenu');
-  ham.addEventListener('click', function () {
-    var open = menu.classList.toggle('open');
-    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  menu.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      menu.classList.remove('open');
-      ham.setAttribute('aria-expanded', 'false');
+  <script>
+    // ---- Theme toggle ----
+    var toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) { }
     });
-  });
 
-  // ---- Active nav highlight ----
-  var navLinks = document.querySelectorAll('nav.desktop a');
-  var sections = document.querySelectorAll('section.day');
-  var byId = {};
-  navLinks.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
-  if ('IntersectionObserver' in window) {
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          navLinks.forEach(function (a) { a.classList.remove('active'); });
-          var link = byId[e.target.id];
-          if (link) link.classList.add('active');
-        }
+    // ---- Mobile menu ----
+    var ham = document.getElementById('hamburger');
+    var menu = document.getElementById('mobileMenu');
+    ham.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.classList.remove('open');
+        ham.setAttribute('aria-expanded', 'false');
       });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    sections.forEach(function (s) { obs.observe(s); });
-  }
-</script>
+    });
+
+    // ---- Active nav highlight ----
+    var navLinks = document.querySelectorAll('nav.desktop a');
+    var sections = document.querySelectorAll('section.day');
+    var byId = {};
+    navLinks.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            navLinks.forEach(function (a) { a.classList.remove('active'); });
+            var link = byId[e.target.id];
+            if (link) link.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      sections.forEach(function (s) { obs.observe(s); });
+    }
+  </script>
 </body>
+
 </html>
